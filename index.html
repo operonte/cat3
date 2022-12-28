@@ -1,0 +1,23 @@
+<!-- index.html -->
+ 
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hola mundo</title>
+  </head>
+  <body>
+    <h1>Hola mundo</h1>
+    <!-- Crea un elemento canvas donde se mostrará el código de barras -->
+    <canvas id="barcode"></canvas>
+  </body>
+  <!-- Incluye la librería de JavaScript en la página -->
+  <script src="https://cdn.jsdelivr.net/npm/@zxing/library@latest/umd/index.min.js"></script>
+  <!-- Utiliza la librería para generar y mostrar el código de barras -->
+  <script>
+    const canvasElement = document.getElementById('barcode');
+    const barcode = new ZXing.BrowserBarcodeReader();
+    barcode.decodeFromCanvas(canvasElement, 'UPC_A', '123456789012').then((result) => {
+      console.log(result);
+    });
+  </script>
+</html>
